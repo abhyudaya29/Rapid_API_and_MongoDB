@@ -25,7 +25,7 @@ if response.status_code == 200:
 else:
     print("API request failed with status code:", response.status_code)
 
-uri = "mongodb+srv://abhyudaya:ab123@movie.9qlkub6.mongodb.net/?retryWrites=true&w=majority"
+uri = "mongodb+srv://<ckustername>:<password>@movie.9qlkub6.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri, server_api=ServerApi('1'))
 db = client["movie"]  # Replace with your database name
 collection = db["abhyudaya"]
