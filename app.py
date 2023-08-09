@@ -1,6 +1,7 @@
 import requests
 import json
-
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v4/get-statistics"
 
 querystring = {"symbol": "AMRN", "region": "US", "lang": "en-US"}
@@ -23,3 +24,11 @@ if response.status_code == 200:
     print("API response saved in 'stock_data.json'")
 else:
     print("API request failed with status code:", response.status_code)
+
+uri = "mongodb+srv://abhyudaya:ab123@movie.9qlkub6.mongodb.net/?retryWrites=true&w=majority"
+client = MongoClient(uri, server_api=ServerApi('1'))
+db = client["movie"]  # Replace with your database name
+collection = db["abhyudaya"]
+# Create a new client and connect to the server
+
+collection.insert_one(response_data)
